@@ -59,6 +59,25 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+		  <li class="active">
+                    <a href="{% url "dashboard" %}">
+                        <i class="pe-7s-graph"></i>
+                        <p>Submitted</p>
+                    </a>
+                </li>
+		{% if perms.login.view_content %}
+		  <li class="active">
+                    <a href="{% url "dashboard" %}">
+                        <i class="pe-7s-graph"></i>
+                        <p>For Approval</p>
+                    </a>
+                </li>
+		{% endif %}
+
+                <li>
+
+                <li>
+
                 <li>
                     <a href="{% url "userprofile" %}">
                         <i class="pe-7s-user"></i>
