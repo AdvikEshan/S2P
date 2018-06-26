@@ -9,38 +9,37 @@ import datetime
 from django.utils import timezone
 
 
-
 @python_2_unicode_compatible  # only if you need to support Python 2
 class Project(models.Model):
-	#requester = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Requester")
-	id = models.AutoField(primary_key=True)
-	requester = models.CharField(blank=True,max_length=30)
-	status = models.CharField(blank=True,max_length=30)
-	project_name = models.CharField(blank=True,max_length=30,unique=True)
-	application_name = models.CharField(blank=True,max_length=30)
-	git_url = models.CharField(blank=True,max_length=256)
-	UBUNTU_VERSION = models.CharField(blank=True,max_length=256)
-	PHP_VERSION = models.CharField(blank=True,max_length=256)
-	PHP_MODULES = models.CharField(blank=True,max_length=256)
-	NGINX_BACKEND_HOST = models.CharField(blank=True,max_length=100)
-	NGINX_BACKEND_HOST_VALUE = models.CharField(blank=True,max_length=500)
-	NGINX_SERVER_NAME = models.CharField(blank=True,max_length=100)
-	NGINX_SERVER_NAME_VALUE = models.CharField( blank=True,max_length=500)
-	NGINX_SERVER_ROOT = models.CharField( blank=True,max_length=100)
-	NGINX_SERVER_ROOT_VALUE = models.CharField( blank=True,max_length=500)
-	NGINX_STATIC_CONTENT_ACCESS_LOG = models.CharField( blank=True,max_length=100)
-	NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE = models.CharField( blank=True,max_length=500)
-	NGINX_STATIC_CONTENT_EXPIRES = models.CharField(blank=True,max_length=100)
-	NGINX_STATIC_CONTENT_EXPIRES_VALUE = models.CharField( blank=True,max_length=500)
-	NGINX_DRUPAL_FILE_PROXY_URL = models.CharField(blank=True,max_length=100)
-	NGINX_DRUPAL_FILE_PROXY_URL_VALUE = models.CharField( blank=True,max_length=500)
-	class Meta:
-        	permissions = (
-        	    ('view_content', 'View content'),
-       		 )
+        #requester = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name="Requester")
+        id = models.AutoField(primary_key=True)
+        requester = models.CharField(blank=True,max_length=30)
+        status = models.CharField(blank=True,max_length=30)
+        project_name = models.CharField(blank=True,max_length=30,unique=True)
+        application_name = models.CharField(blank=True,max_length=30)
+        git_url = models.CharField(blank=True,max_length=256)
+        UBUNTU_VERSION = models.CharField(blank=True,max_length=256)
+        PHP_VERSION = models.CharField(blank=True,max_length=256)
+        PHP_MODULES = models.CharField(blank=True,max_length=256)
+        NGINX_BACKEND_HOST = models.CharField(blank=True,max_length=100)
+        NGINX_BACKEND_HOST_VALUE = models.CharField(blank=True,max_length=500)
+        NGINX_SERVER_NAME = models.CharField(blank=True,max_length=100)
+        NGINX_SERVER_NAME_VALUE = models.CharField( blank=True,max_length=500)
+        NGINX_SERVER_ROOT = models.CharField( blank=True,max_length=100)
+        NGINX_SERVER_ROOT_VALUE = models.CharField( blank=True,max_length=500)
+        NGINX_STATIC_CONTENT_ACCESS_LOG = models.CharField( blank=True,max_length=100)
+        NGINX_STATIC_CONTENT_ACCESS_LOG_VALUE = models.CharField( blank=True,max_length=500)
+        NGINX_STATIC_CONTENT_EXPIRES = models.CharField(blank=True,max_length=100)
+        NGINX_STATIC_CONTENT_EXPIRES_VALUE = models.CharField( blank=True,max_length=500)
+        NGINX_DRUPAL_FILE_PROXY_URL = models.CharField(blank=True,max_length=100)
+        NGINX_DRUPAL_FILE_PROXY_URL_VALUE = models.CharField( blank=True,max_length=500)
+        class Meta:
+                permissions = (
+                    ('view_content', 'View content'),
+                 )
 
-	def __str__(self):
-		return self.project_name
+        def __str__(self):
+                return self.project_name
 class RequestForm(ModelForm):
     class Meta:
         model = Project
